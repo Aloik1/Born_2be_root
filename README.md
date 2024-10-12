@@ -20,7 +20,25 @@ The Born_2be_root project is all about navigating and managing a Linux-based sys
 
 1. [Basic Theory Questions](#basic-theory-questions)
 2. [Installation of a Debian System](#installation-of-a-debian-system)
-3. [Bonus part installation](#bonus-part-installation)
+   - [Step 1: Download Debian ISO](#step-1:-download-debian-iso)
+   - [Step 2: Create a New Virtual Machine](#step-2:-create-a-new-virtual-machine)
+   - [Step 3: Open VM Settings](#step-3:-open-vm-settings)
+   - [Step 4: Start the Virtual Machine](#step-4:-start-the-virtual-machine)
+   - [Step 5: Install Debian](#step-5:-install-debian)
+   - [Step 6: Network Configuration](#step-6:-network-configuration)
+   - [Step 7: User Account Setup](#step-7:-user-account-setup)
+   - [Step 8: Select Time Zone](#step-8:-select-time-zone)
+   - [Step 9: Disk Partitioning](#step-9:-disk-partitioning)
+   - [Step 10: Finalize Installation](#step-10:-finalize-installation)
+   - [Step 11: Install GRUB Bootloader](#step-11:-install-grub-bootloader)
+4. [Bonus Part Installation](#bonus-part-installation)
+   - [Step 1: Choose Manual Partitioning](#step-1:-choose-manual-partitioning)
+   - [Step 2: Create the Boot Partition](#step-2:-create-the-boot-partition)
+   - [Step 3: Create an Encrypted Partition for LVM](#step-3:-create-an-encrypted-partition-for-lvm)
+   - [Step 4: Set Up Encryption](#step-4:-set-up-encryption)
+   - [Step 5: Create the LVM Volume Group](#step-5:-create-the-lvm-volume-group)
+   - [Step 6: Create Logical Volumes](#step-6:-create-logical-volumes)
+   - 
 
 ---
 
@@ -60,7 +78,7 @@ Go to [Debian Download](https://www.debian.org/download) and download the approp
 
 ### Step 2: Create a New Virtual Machine
 
-1. In the VirtualBox Manager, click on the "New" button at the top left.
+1. In the VirtualBox Manager, click on the **"New"** button at the top left.
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(1).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
@@ -68,52 +86,58 @@ Go to [Debian Download](https://www.debian.org/download) and download the approp
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(2).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
-3. Choose your folder (I recommend “sgoinfre”, but since i'm doing this guide on my own computer, i chose a different folder).
+
+3. Choose your folder (I recommend `sgoinfre`, but since i'm doing this guide on my own computer, i chose a different folder).
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(3).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
-4. Select your Debian ISO file.
+
+4. Select your Debian `.iso` file.
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(4).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
-5. Mark “Skip Unattended Installation”.
+
+5. Mark **“Skip Unattended Installation”**.
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(6).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
+
 6. Choose the amount of RAM (I recommend 1024 MB).
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(7).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
-7. Set the size for your virtual hard disk (12 GB if you’re not planning on doing the BONUS PART, or 30 GB if you do) and click "Next."
+
+7. Set the size for your virtual hard disk (`12 GB` if you’re not planning on doing the BONUS PART, or `30 GB` if you do) and click **"Next"**.
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(8).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
-8. Click “Finish” to complete the virtual machine setup.
+
+8. Click **“Finish”** to complete the virtual machine setup.
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(9).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
 
 ### Step 3: Open VM Settings
 
-1. **Select your VM** and click the "Settings" button at the top.
+1. **Select your VM** and click the **"Settings"** button at the top.
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(140).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
 
-2. **Go to the "Storage" tab**.
+2. Go to the **"Storage"** tab.
 
-3. Under "Controller: IDE," click on the empty disk icon.
+3. Under **"Controller: IDE"**, click on the empty disk icon.
 
-4. Click the disk icon next to "Optical Drive" and select your Debian 12 ISO file.
+4. Click the disk icon next to **"Optical Drive"** and select your Debian 12 ISO file.
 
-5. Click “OK” to close the settings window.
+5. Click **“Ok”** to close the settings window.
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(141).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
 
 ### Step 4: Start the Virtual Machine
 
-With the virtual machine selected, click the "Start" button at the top.
+With the virtual machine selected, click the **"Start"** button at the top.
 
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(10).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
@@ -121,12 +145,12 @@ With the virtual machine selected, click the "Start" button at the top.
 
 ### Step 5: Install Debian
 
-1. Use the arrow keys to select "Install" (not the graphical option) and press Enter.
+1. Use the arrow keys to select **"Install"** (not the graphical option) and press Enter.
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(12).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
-2. Follow the prompts to choose your preferred language, country, and locale. I'm in Madrid, so I chose Spain.
 
+2. Follow the prompts to choose your preferred `language`, `country`, and `locale`. I'm in Madrid, so I chose Spain.
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(13).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
@@ -145,7 +169,7 @@ With the virtual machine selected, click the "Start" button at the top.
 
 ### Step 6: Network Configuration
 
-Enter a hostname for your system (e.g., "your_login42") and configure the network (leave domain name blank for basic setup).
+Enter a hostname for your system (`your_login42`) and configure the network (**leave domain name blank for basic setup**).
 
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(20).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
@@ -156,15 +180,17 @@ Enter a hostname for your system (e.g., "your_login42") and configure the networ
 
 ### Step 7: User Account Setup
 
-1. Choose a password for the root user (I recommend having at least 1 uppercase letter, 1 lowercase letter, and a digit. For example: Mynewproject123).
+1. Choose a password for the root user (I recommend having at least `1 uppercase letter, 1 lowercase letter, and a digit`. For example: Mynewproject123).
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(22).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
+
 2. Re-enter the root password to verify.
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(23).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
-3. Enter the new username (your_login) and set a password for this user, following the same complexity guidelines.
+
+3. Enter the new username (`your_login`) and set a **password** for this user, following the same complexity guidelines.
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(24).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
@@ -187,7 +213,7 @@ Choose your time zone (e.g., Madrid if you’re in Spain).
 
 ### Step 9: Disk Partitioning
 
-1. For the BONUS PART, refer to the bonus installation section. Otherwise, choose "Guided - use entire disk and set up encrypted LVM" and press Enter.
+1. For the [BONUS PART](#bonus-part-installation), refer to the bonus installation section. Otherwise, choose "Guided - use entire disk and set up encrypted LVM" and press Enter.
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(30).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
@@ -229,7 +255,8 @@ Choose your time zone (e.g., Madrid if you’re in Spain).
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(39).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
-2. Choose "No" when prompted to scan for additional media.
+
+#### 2. Choose "No" when prompted to scan for additional media.
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(40).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
@@ -262,8 +289,6 @@ When prompted, choose “Yes” to install the GRUB bootloader. Choose `/dev/sda
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(47).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
-
-### Completion
 
 And voilà! You have installed Debian on your VM. Just hit “Continue,” and you are all set to start the project.
 <p>
@@ -448,80 +473,177 @@ Now, you will create the seven logical volumes. The process is the same for most
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(92).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
 
-3. Give your logical volume a name.
+3. Repeat first steps with these inputs to create your logical volumes.
    We will need: `root`, `swap`, `home`, `var`, `srv`, `tmp` and `var-log`.
+- **ROOT:**
 
-<figure style="display:inline-block; margin-right:10px;">
-  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(97).png?raw=true" alt="Image 1" width="200">
-  <figcaption>For Root</figcaption>
-</figure>
-<figure style="display:inline-block; margin-right:10px;">
-  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(99).png?raw=true" alt="Image 2" width="200">
-  <figcaption>Title for Image 2</figcaption>
-</figure>
-
-
-
-
-5. **Size**: 10 GB (or as needed).
-  - **Name**: `lv_root`.
-  - Select **"Create Logical Volume."**
-
-- **Root Volume**:
-- **Swap Volume**:
-  - **Size**: 4 GB (or as needed).
-  - **Name**: `lv_swap`.
-  - Select **"Create Logical Volume."**
-
-- **Home Volume**:
-  - **Size**: 10 GB (or as needed).
-  - **Name**: `lv_home`.
-  - Select **"Create Logical Volume."**
-
-- **Var Volume**:
-  - **Size**: 5 GB (or as needed).
-  - **Name**: `lv_var`.
-  - Select **"Create Logical Volume."**
-
-- **Tmp Volume**:
-  - **Size**: 5 GB (or as needed).
-  - **Name**: `lv_tmp`.
-  - Select **"Create Logical Volume."**
-
-- **Log Volume**:
-  - **Size**: 5 GB (or as needed).
-  - **Name**: `lv_log`.
-  - Select **"Create Logical Volume."**
-
-- **Backup Volume**:
-  - **Size**: 5 GB (or as needed).
-  - **Name**: `lv_backup`.
-  - Select **"Create Logical Volume."**
-
+Root name:
 <p>
-  <img src="link_to_image" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/root%20name.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
-After creating each logical volume, you'll be prompted to set the filesystem for each:
+  Root size:
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/root%20size.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
 
-- For `lv_root`, `lv_home`, `lv_var`, `lv_tmp`, `lv_log`, and `lv_backup`, choose **"Ext4 journaling file system."**
-- For `lv_swap`, select **"swap area."**
+- **SWAP:**
 
-### Assign Mount Points
+Swap name:
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/swap%20name.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+  Swap size:
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/swap%20size.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
 
-Assign mount points as follows:
+- **HOME:**
 
-- `lv_root`: Mount point `/`
-- `lv_home`: Mount point `/home`
-- `lv_var`: Mount point `/var`
-- `lv_tmp`: Mount point `/tmp`
-- `lv_log`: Mount point `/var/log`
-- `lv_backup`: Mount point `/backup`
+Home name:
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/home%20name.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+  Home size:
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/home%20size.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
 
-### Step 7: Finalize the Partitioning
+- **VAR:**
 
-1. After creating and configuring all partitions and logical volumes, review the partition layout.
-2. Confirm all changes and write them to disk.
-3. Proceed with the installation process as usual.
+Var name:
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/var%20name.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+  Var size:
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/var%20size.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
 
+- **SRV:**
+
+Srv name:
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/srv%20name.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+  Srv size:
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/srv%20size.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+- **TMP:**
+
+Tmp name:
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/tmp%20name.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+  Tmp size:
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/tmp%20size.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+- **VAR-LOG:**
+
+Var-log name:
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/var-log%20name.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+  Var-log size:
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/var-log%20size.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+4. If you wish, check if you did everything right by hitting **Enter** on **"Display configuration details"**. When you are done, hit **Enter**.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(111).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(112).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+5. Hit "Enter" on **"Finish"**.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/LVM%20volumes1.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+After creating logical volumes, you'll be prompted to set the filesystem for each one:
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(114).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+6. For next steps, we will do mostly the same thing again. You will choose each of the logical volumes you created and modify them. To select, hit **"Enter"** on `#1` with assigned space. 
+  - Choose **"Use as: do not use"** option.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(115).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+  - Choose **"Ext4 journaling file system."** for: `root`, `home`, `var`, `srv`, `tmp`, `val-log`. Choose **"Swap area"** for: `swap`. Note, `var-log` is a little different.
+  - Press **"Done setting up the partition"**.
+Here is how each one of the partitions should look
+
+  **Root**
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Root%20partition.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+  **Swap**
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Swap%20partition.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+  **Home**
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Home%20partition.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+  **Var**
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Var%20partition.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+  **Srv**
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Srv%20partition.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+  **Tmp**
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Tmp%20partition.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+  **Var-log**
+- Choose var-log to modify it.
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(132).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+- Select **"Mount point"** > **"Enter manually"**
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(133).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(134).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+- Type `/var/log`
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(135).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+- Press **"Done setting up the partition"**
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(136).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+7. Go all the way down and press **"Finish partitioning and write changes to disk"**
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(137).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+8. Select **"Yes"** and press **Enter**
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(138).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+9. **Great Job!! You successfully partitioned your disk manually. Now go [HERE](#2.-choose-"no"-when-prompted-to-scan-for-additional-media.) to continue your installation**
 ---
 
