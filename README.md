@@ -60,41 +60,80 @@ Go to [Debian Download](https://www.debian.org/download) and download the approp
 ### Step 2: Create a New Virtual Machine
 
 1. **Click "New"**: In the VirtualBox Manager, click on the "New" button at the top left.
-2. **Name Your VM**: Enter a name for your virtual machine (e.g., "born-2be-root").
-3. **Select Folder**: Choose your folder (I recommend “sgoinfre”).
-4. **Select ISO File**: Select your Debian ISO file.
-5. **Skip Unattended Installation**: Mark “Skip Unattended Installation”.
-6. **Allocate RAM**: Choose the amount of RAM (I recommend 1024 MB).
-7. **Set Hard Disk Size**: Set the size for your virtual hard disk (12 GB if you’re not planning on doing the BONUS PART, or 30 GB if you do) and click "Next."
-8. **Finish Setup**: Click “Finish” to complete the virtual machine setup.
-
 <p>
-  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(1).png?raw=true" alt="Image 1" width="200" style="display:inline-block; margin-right:10px;">
-  <img src="path/to/image2.png" alt="Image 2" width="200" style="display:inline-block; margin-right:10px;">
-  <img src="path/to/image3.png" alt="Image 3" width="200" style="display:inline-block;">
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(1).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
-
+3. **Name Your VM**: Enter a name for your virtual machine (e.g., "born-2be-root").
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(2).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+4. **Select Folder**: Choose your folder (I recommend “sgoinfre”, but since i'm doing this guide on my own computer, i chose a different folder).
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(3).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+5. **Select ISO File**: Select your Debian ISO file.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(4).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+6. **Skip Unattended Installation**: Mark “Skip Unattended Installation”.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(6).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+7. **Allocate RAM**: Choose the amount of RAM (I recommend 1024 MB).
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(7).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+8. **Set Hard Disk Size**: Set the size for your virtual hard disk (12 GB if you’re not planning on doing the BONUS PART, or 30 GB if you do) and click "Next."
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(8).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+9. **Finish Setup**: Click “Finish” to complete the virtual machine setup.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(9).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
 
 ### Step 3: Open VM Settings
 
 1. **Select your VM** and click the "Settings" button at the top.
-2. **Go to the "Storage" tab**.
-3. Under "Controller: IDE," click on the empty disk icon.
-4. Click the disk icon next to "Optical Drive" and select your Debian 12 ISO file.
-5. Click “OK” to close the settings window.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(140).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
 
-![VM Settings](path/to/your/screenshot3.png)
+2. **Go to the "Storage" tab**.
+
+3. Under "Controller: IDE," click on the empty disk icon.
+
+4. Click the disk icon next to "Optical Drive" and select your Debian 12 ISO file.
+
+5. Click “OK” to close the settings window.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(141).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
 
 ### Step 4: Start the Virtual Machine
 
 With the virtual machine selected, click the "Start" button at the top.
 
-![Start VM](path/to/your/screenshot4.png)
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(10).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
 
 ### Step 5: Install Debian
 
 1. Use the arrow keys to select "Install" (not the graphical option) and press Enter.
+<p>
+  <img src="link_to_image" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
 2. Follow the prompts to choose your preferred language, country, and locale.
+<p>
+  <img src="link_to_image" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+<p>
+  <img src="link_to_image" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+<p>
+  <img src="link_to_image" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
 
 ![Install Debian](path/to/your/screenshot5.png)
 
