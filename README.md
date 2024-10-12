@@ -57,8 +57,6 @@ Alright, let’s get into the installation of our Debian system.
 
 Go to [Debian Download](https://www.debian.org/download) and download the appropriate `.iso` file.
 
-![Download Debian ISO](path/to/your/screenshot1.png)
-
 ### Step 2: Create a New Virtual Machine
 
 1. **Click "New"**: In the VirtualBox Manager, click on the "New" button at the top left.
@@ -70,7 +68,12 @@ Go to [Debian Download](https://www.debian.org/download) and download the approp
 7. **Set Hard Disk Size**: Set the size for your virtual hard disk (12 GB if you’re not planning on doing the BONUS PART, or 30 GB if you do) and click "Next."
 8. **Finish Setup**: Click “Finish” to complete the virtual machine setup.
 
-![Create Virtual Machine](path/to/your/screenshot2.png)
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(1).png?raw=true" alt="Image 1" width="200" style="display:inline-block; margin-right:10px;">
+  <img src="path/to/image2.png" alt="Image 2" width="200" style="display:inline-block; margin-right:10px;">
+  <img src="path/to/image3.png" alt="Image 3" width="200" style="display:inline-block;">
+</p>
+
 
 ### Step 3: Open VM Settings
 
