@@ -643,6 +643,6 @@ Here is how each one of the partitions should look
 <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(138).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
 
-9. **Great Job!! You successfully partitioned your disk manually. Now go [HERE](#2-choose-"no"-when-prompted-to-scan-for-additional-media.) to continue your installation**
+9. **Great Job!! You successfully partitioned your disk manually. Now go [HERE](#2-choose-no-when-prompted-to-scan-for-additional-media) to continue your installation**
 ---
 
