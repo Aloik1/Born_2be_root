@@ -20,6 +20,7 @@ The Born_2be_root project is all about navigating and managing a Linux-based sys
 
 1. [Basic Theory Questions](#basic-theory-questions)
 2. [Installation of a Debian System](#installation-of-a-debian-system)
+3. [Bonus part installation](#bonus-part-installation)
 
 ---
 
@@ -268,6 +269,259 @@ And voilà! You have installed Debian on your VM. Just hit “Continue,” and y
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(48).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
+
+---
+  
+## Bonus part installation
+
+In this section, we'll go through the steps to manually configure your partitions using Logical Volume Manager (LVM). You'll set up a primary boot partition and an encrypted logical partition containing several logical volumes.
+
+### Step 1: Choose Manual Partitioning
+
+1. When prompted for disk partitioning, select **"Manual"**.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(53).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+2. You’ll be taken to the partitioning screen, where you can create the necessary partitions. Choose your disk to partition.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(55).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+3. Choose **"Yes"** to create a new partition table.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(56).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+### Step 2: Create the Boot Partition
+
+1. Select free space on the disk and choose **"Create a new partition"**.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(57).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(58).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+2. Set the size of the boot partition (we will use 500 Mb).
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(60).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+4. Choose **"Primary"**.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(61).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+5. Set it to **"Beginning of the space"**.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(62).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+7. Set the mount point to **`/boot`**.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(62).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(64).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+8. Hit Enter on **"Done setting up the partition"**.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(66).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+### Step 3: Create an Encrypted Partition for LVM
+
+1. Select the remaining free space and choose **"Create a new partition"**.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(67).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(68).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+2. Use the maximum available space. Type **"max"**.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(69).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+3. Choose **"Logical"**.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(70).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+4. Choose "Mount point" option. Choose **"Do not mount it"** option.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(71).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(72).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+5. Select **"Done setting up the partition"**.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(73).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+### Step 4: Set Up Encryption
+
+1. After creating the physical volume, select it and choose **"Configure encrypted volumes"**. Hit Enter on **"Yes"** to write changes to the disk.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(74).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(75).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+2. Select **"Configure encrypted volumes"**.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(76).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+3. Select the partition you want to encrypt. Choose **`/dev/sda5`**.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(78).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+4. Confirm the settings. Hit **"Done setting up the partition."**
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(79).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+5. Hit **"Finish"**.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(80).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+6. This process will start erasing data. Hit **"Cancel"** since we have no data to erase.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(81).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+7. Create a passphrase to encrypt your partition, make sure to follow the same complexity guidelines as hostname and user.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(82).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+ 8. Re-enter the passphrase.
+ <p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(83).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+### Step 5: Create the LVM Volume Group
+
+1. Select **"Configure the Logical Volume Manager."**
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(84).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+2. Hit **"Yes"** to write changes to disks.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(85).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+4. Choose **"Create volume group"**.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(86).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+5. Create a new volume group and name it **`LVMGroup`**.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(88).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+7. Select **`/dev/mapper/sda5_crypt`** and hit **"Enter"**.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(89).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+### Step 6: Create Logical Volumes
+
+Now, you will create the seven logical volumes. The process is the same for most of them.
+
+1. Hit **"Create logical volume"** (same for all).
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(91).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+2. Choose Volume group (sice we only created one, it's the same for all)
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(92).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+3. Give your logical volume a name.
+   We will need: `root`, `swap`, `home`, `var`, `srv`, `tmp` and `var-log`.
+
+<figure style="display:inline-block; margin-right:10px;">
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(97).png?raw=true" alt="Image 1" width="200">
+  <figcaption>For Root</figcaption>
+</figure>
+<figure style="display:inline-block; margin-right:10px;">
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(99).png?raw=true" alt="Image 2" width="200">
+  <figcaption>Title for Image 2</figcaption>
+</figure>
+
+
+
+
+5. **Size**: 10 GB (or as needed).
+  - **Name**: `lv_root`.
+  - Select **"Create Logical Volume."**
+
+- **Root Volume**:
+- **Swap Volume**:
+  - **Size**: 4 GB (or as needed).
+  - **Name**: `lv_swap`.
+  - Select **"Create Logical Volume."**
+
+- **Home Volume**:
+  - **Size**: 10 GB (or as needed).
+  - **Name**: `lv_home`.
+  - Select **"Create Logical Volume."**
+
+- **Var Volume**:
+  - **Size**: 5 GB (or as needed).
+  - **Name**: `lv_var`.
+  - Select **"Create Logical Volume."**
+
+- **Tmp Volume**:
+  - **Size**: 5 GB (or as needed).
+  - **Name**: `lv_tmp`.
+  - Select **"Create Logical Volume."**
+
+- **Log Volume**:
+  - **Size**: 5 GB (or as needed).
+  - **Name**: `lv_log`.
+  - Select **"Create Logical Volume."**
+
+- **Backup Volume**:
+  - **Size**: 5 GB (or as needed).
+  - **Name**: `lv_backup`.
+  - Select **"Create Logical Volume."**
+
+<p>
+  <img src="link_to_image" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+After creating each logical volume, you'll be prompted to set the filesystem for each:
+
+- For `lv_root`, `lv_home`, `lv_var`, `lv_tmp`, `lv_log`, and `lv_backup`, choose **"Ext4 journaling file system."**
+- For `lv_swap`, select **"swap area."**
+
+### Assign Mount Points
+
+Assign mount points as follows:
+
+- `lv_root`: Mount point `/`
+- `lv_home`: Mount point `/home`
+- `lv_var`: Mount point `/var`
+- `lv_tmp`: Mount point `/tmp`
+- `lv_log`: Mount point `/var/log`
+- `lv_backup`: Mount point `/backup`
+
+### Step 7: Finalize the Partitioning
+
+1. After creating and configuring all partitions and logical volumes, review the partition layout.
+2. Confirm all changes and write them to disk.
+3. Proceed with the installation process as usual.
 
 ---
 
