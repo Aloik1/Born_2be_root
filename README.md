@@ -32,6 +32,7 @@ The Born_2be_root project is all about navigating and managing a Linux-based sys
    - [Step 9: Disk Partitioning](#step-9-disk-partitioning)
    - [Step 10: Finalize Installation](#step-10-finalize-installation)
    - [Step 11: Install GRUB Bootloader](#step-11-install-grub-bootloader)
+3. [Project Guide](project-guide)
 4. [Bonus Part Installation](#bonus-part-installation)
    - [Step 1: Choose Manual Partitioning](#step-1-choose-manual-partitioning)
    - [Step 2: Create the Boot Partition](#step-2-create-the-boot-partition)
@@ -307,7 +308,7 @@ And voilà! You have installed Debian on your VM. Just hit “Continue,” and y
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(48).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
 
-## Project Process
+## Project Guide
 
 Alright, after this long installation, let’s get into the fun part. I found it easier to start from evaluation and prepare for what is going to be asked of you. Go HERE to check all the questions you will be asked during the defense of this project.
 
