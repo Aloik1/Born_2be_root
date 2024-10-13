@@ -12,7 +12,8 @@ With that said, let's dive into it!
 
 ## Introduction
 
-The Born_2be_root project is all about navigating and managing a Linux-based system. We will focus on a Debian system, so apologies to all the Rocky fans out there!
+The Born_2be_root project is all about navigating and managing a Linux-based system. We will focus on a Debian system, so apologies to all the Rocky fans out there!  
+[Here is my subject](https://github.com/Aloik1/Born_2be_root/blob/documents/subject_born_2be_root.pdf): your may differ.
 
 ---
 
@@ -356,8 +357,9 @@ In this section, we'll go through the steps to manually configure your partition
 
 7. Set the mount point to **`/boot`**.
 <p>
-  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(62).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/mount%20point%20for%20boot%20partition.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
+
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(64).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
@@ -430,7 +432,10 @@ In this section, we'll go through the steps to manually configure your partition
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(80).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
 
-6. This process will start erasing data. Hit **"Cancel"** since we have no data to erase.
+6. This process needs to erase data from the partition. Confirm by pressing **"Yes"** and then hit **"Cancel"** since we have no data to erase.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/confirm%20data%20erasing%20process.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(81).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
@@ -570,6 +575,10 @@ Var-log name:
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(112).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
+It should look similar to the image, proviided in the subject. Check names and sizes. My subject had this image.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(59).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
 
 5. Hit "Enter" on **"Finish"**.
 <p>
@@ -587,8 +596,18 @@ After creating logical volumes, you'll be prompted to set the filesystem for eac
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(115).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
 
-  - Choose **"Ext4 journaling file system."** for: `root`, `home`, `var`, `srv`, `tmp`, `val-log`. Choose **"Swap area"** for: `swap`. Note, `var-log` is a little different.
-  - Press **"Done setting up the partition"**.
+  - Choose **"Ext4 journaling file system."** for: `root`, `home`, `var`, `srv`, `tmp`, `val-log`. Choose **"Swap area"** for: `swap`.
+Note, `var-log` is a little different.
+  - As for mount point, most of out logical volumes will have the same mount point option as their name:  
+   -- Root:   /  
+   -- home:   /home  
+   -- var:    /var  
+   -- swap:   nothing  
+   -- tmp:    /tmp  
+   -- srv:    /srv
+   -- var-log: manual
+  
+  - Press **"Done setting up the partition"**.  
 Here is how each one of the partitions should look
 
   **Root**
