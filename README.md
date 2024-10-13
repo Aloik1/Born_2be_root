@@ -32,7 +32,7 @@ The Born_2be_root project is all about navigating and managing a Linux-based sys
    - [Step 9: Disk Partitioning](#step-9-disk-partitioning)
    - [Step 10: Finalize Installation](#step-10-finalize-installation)
    - [Step 11: Install GRUB Bootloader](#step-11-install-grub-bootloader)
-3. [Project Guide](project-guide)
+3. [Project Guide](#project-guide)
 4. [Bonus Part Installation](#bonus-part-installation)
    - [Step 1: Choose Manual Partitioning](#step-1-choose-manual-partitioning)
    - [Step 2: Create the Boot Partition](#step-2-create-the-boot-partition)
