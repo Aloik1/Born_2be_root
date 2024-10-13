@@ -431,6 +431,24 @@ We have 1 more setting to change. Go to `/etc/pam.d/common-password`:
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/pam_d_common-password.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
 
+Now that we have our rules, they will apply to everyone but the already existing users.
+let's change that:  
+1. First, let's check our password policy for current user. Use:
+```bash
+sudo chage -l user
+```
+Explanation (doesn't work yet) 
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Password%20policy%20current%20user.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+2. To change these options we will use flags that replace `-l`:
+   * `-W` + `number`: change warning.
+   * `-M` + `number`: Change password max duration.
+   * `-m` + `number`: change password minimum time before changing again.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/password%20policy%20changed%20for%20current%20user.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
 ### Check if UFW is Installed
 
 To install, use:
@@ -468,11 +486,13 @@ Here is how it looks in terminal:
 
 ### Points to defend
 
-- Check for a user with your login name.
-- Check if your user is in "sudo" and "user42" groups.
-- Check password policy. Create a new user.
-- Create a new group "evaluating" and add this new user to it.
-- Explain advantages and disadvantages of password policy
+- [Check for a user with your login name.](#check-for-a-user-with-your-loginname)
+- [Check if your user is in "sudo" and "user42" groups.](#check-if-your-user-is-in-sudo-and-user42-groups)
+- [Check password policy. Create a new user.](#check-password-policy-create-a-new-user)
+- [Create a new group "evaluating" and add this new user to it.](#create-a-new-group-evaluating-and-add-this-new-user-to-it)
+- [Check if the new user is in the "evaluating" Group](#check-if-the-new-user-is-in-the-evaluating-group)
+- [Explain advantages and disadvantages of password policy](#advantages-and-disadvantages-of-password-policy)
+- [Extra commands](#extra-commands) (you will not defend these, but they are useful)
 
 ### Check for a user with your login name
 
@@ -481,9 +501,9 @@ In order to check your user, type:
 whoami
 ```
 
-### Check if your user is in "sudo" and "user42" groups.
+### Check if your user is in "sudo" and "user42" groups
 
-There are 2 ways to check user groups:
+There are 2 ways to check user groups:  
 1. Use:  
 ```bash
 id -Gn user
@@ -495,7 +515,7 @@ groups user
 ```
 Explanation (doesn't work yet)
 
-### Check password policy. Create a new user.
+### Check password policy. Create a new user
 
 To create a new user, run:
 ```bash
@@ -503,7 +523,7 @@ sudo adduser newuser
 ```
 Explanation (doesn't work yet)
 
-### Create a new group "evaluating" and add this new user to it.
+### Create a new group "evaluating" and add this new user to it
 
 To create a new group, use:
 ```bash
@@ -527,14 +547,74 @@ Same as before, we will use:
 ```bash
 groups newuser
 ```
-### Advantages and Disadvantages of Password Policy
+
+### Extra commands
+
+- To delete a group use:
+```bash
+sudo groupdel groupname
+```
+Explanation (doesn't work yet)
+- To delete a user from a group:
+```bash
+sudo gpasswd -d username groupname
+```
+Explanation (doesn't work yet)
+- To delete a user entirely:
+```bash
+sudo userdel
+```
+Explanation (doesn't work yet)
+
+### Advantages and disadvantages of password policy
 
 - Advantages:  
    1. Increased Security: A strong password policy helps protect user accounts from unauthorized access.  
    2. Compliance: Many organizations are required to enforce strict password policies to comply with industry regulations.  
 - Disadvantages:  
    1. User Frustration: Complex password requirements can lead to user frustration and increased support requests.  
-   2. Password Fatigue: Users may resort to insecure practices, like writing down passwords or using simple patterns, to remember complex passwords.  
+   2. Password Fatigue: Users may resort to insecure practices, like writing down passwords or using simple patterns, to remember complex passwords.
+ 
+## Hostname
+
+### Points to defend
+- Check hostname
+- Change your hostname
+- Restore your previous hostname
+- Display partitions and compare with subject
+- Explain how LVM works and why is it beneficial
+
+### Check hostname
+Hostname is always displayed at the beginning in the command line.
+<p>
+  <img src="hostname" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+Additionally you can run:
+```bash
+hostname
+```
+
+### Change your hostname
+To change your hostname, modify `/etc/hostname`
+```bash
+sudo nano -l /etc/hostname
+```
+then you will need to reboot your systen for the changes to take place.
+```bash
+sudo reboot
+```
+### Restore your hostname
+Same thing as changing it, just change it to what is used to be ;)
+
+### Display partitions and compare then with subject
+These are the partitions with no bonus part:
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/partitions%20no%20bonus.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+These are the partitions with bonus part:
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(59).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
 
 ---
   
