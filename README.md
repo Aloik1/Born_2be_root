@@ -307,6 +307,162 @@ And voilà! You have installed Debian on your VM. Just hit “Continue,” and y
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(48).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
 
+## Project Process
+
+Alright, after this long installation, let’s get into the fun part. I found it easier to start from evaluation and prepare for what is going to be asked of you. Go HERE to check all the questions you will be asked during the defense of this project.
+
+As you can see, the evaluation is divided into multiple blocks of questions. We will complete this project in the same fashion. If you are interested in what each command does, I will do my best to explain it. You can click on commands to go to the explanation :)
+
+Before anything, we need to install the essentials. Go to your root user.
+```bash
+su
+```
+Install: sudo (Explanation)
+```bash
+apt install sudo
+```
+
+Add your user to sudo group. Don’t worry, we will explain this later on. 
+Use: (Explanation)
+```bash
+sudo usermod -aG sudo user
+```
+Now go back to your user: 
+```bash
+su user
+```
+
+## Simple Configuration
+
+### Points to Defend
+
+- [Check for absence of graphical environment.](#check-for-absence-of-graphical-environment)
+- [Check OS (Debian or Rocky).](check-os-(debian-or-rocky))
+- [Check for password on start.](check-for-password-on-start)
+- [Connect with a user (Mustn't be root)](connect-with-a-user-(mustn't-be-root))
+- [Check password rules.](check-password-rules)
+- [Check if UFW is installed.](check-if-ufw-is-installed)
+- [Check if SSH is installed.](check-if-ssh-is-installed)
+- [Check script appearance.](check-for-appearance-of-script)
+
+### Check for Absence of Graphical Environment
+
+The simplest way to check the absence of graphical environment is to check if you can see your cursor. If it disappears when you hover over your VM, there is no graphical interface. 
+Also, you can use the command `echo $DISPLAY`. If it returns anything but an empty line, you are using a graphical interface. 
+
+### Check OS (Debian or Rocky)
+
+A simple command to check your OS is: (Explanation)
+
+```bash 
+head -u 2 /etc/os-release
+```
+### Check for Password on Start
+
+You can use the following command to check this
+```bash
+sudo reboot
+```
+### Connect with a user (Mustn't be root)
+
+You can check this at the beginning of the command line. If your user isn’t root, you should see something like:
+```ruby
+user@hostname:~$
+```
+If your user is root, you will see "root" in front:
+```ruby
+root@hostname:~#
+```
+### Check password rules
+First, let's see what does the subject tell us to do:
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/password_policy_subject.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+To set up our password policy, we will be using:
+```bash
+nano -l
+```
+Don't forget to use `sudo` to modify files.
+
+We have a couple of points to go over here. Here they are:
+To set up the first 3 points, modify `/etc/login.defs`:  
+
+Line 165: `PASS_MAX_DAYS=30`  
+Line 166: `PASS_MIN_DAYS=2`  
+Line 167: `PASS_WARN_AGE=7`  
+
+It should look something like this:
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/login_defs.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+To set up the rest, we are going to install:
+```bash
+sudo apt install libpam-pwquality
+```
+Now modify `/etc/security/pwquality.conf` (don’t forget to uncomment these lines and read descriptions):  
+
+- Line 11: `minlen` (minimum length)  
+- Line 34: `minclass` (different types of characters)  
+- Line 15: `dcredit` (number of digits)  
+- Line 20: `ucredit` (number of uppercase letters)  
+- Line 25: `lcredit` (number of lowercase letters)  
+- Line 38: `maxrepeat` (max of consecutive same characters)  
+- Line 55: `usercheck` (check for username in password, change to 1)  
+- Line 70: `retry` (number of tries)  
+- Line 74: `enforce_for_root` (make root follow these rules)  
+
+After everything you are left with something like this:
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/pwquality_conf1.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/pwquality_conf2.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+We have 1 more setting to change. Go to `/etc/pam.d/common-password`:
+
+- Line 25: Add `difok=7 user!=root`  
+      1. `difok`: number of characters different from last password.
+      2. `user!=root`: enforce for everyone except root.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/pam_d_common-password.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+### Check if UFW is Installed
+
+To install, use:
+```bash
+sudo apt install ufw
+```
+Use `sudo ufw enable` to start UFW on system startup.
+Use `sudo service ufw start` to turn it on.
+To check it, use:
+```bash
+sudo service ufw status
+```
+It should look like this:
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/UFW_status.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+### Check if SSH is installed
+
+To install, use:
+```bash
+sudo apt install ssh
+```
+Use `sudo service ssh start` to turn it on.
+Use `sudo systemctl status ssh` to check SSH status.
+Here is how it looks in terminal:
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/SSH_status.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+### Check for appearance of Script
+- When we create the script, it should appear every 10 minutes.
+
 ---
   
 ## Bonus part installation
@@ -675,5 +831,6 @@ Here is how each one of the partitions should look
 </p>
 
 9. **Great Job!! You successfully partitioned your disk manually. Now go [HERE](#2-choose-no-when-prompted-to-scan-for-additional-media) to continue your installation**
+
 ---
 
