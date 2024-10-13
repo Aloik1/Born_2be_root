@@ -13,7 +13,7 @@ With that said, let's dive into it!
 ## Introduction
 
 The Born_2be_root project is all about navigating and managing a Linux-based system. We will focus on a Debian system, so apologies to all the Rocky fans out there!  
-[Here is my subject](https://github.com/Aloik1/Born_2be_root/blob/documents/subject_born_2be_root.pdf): your may differ.
+[Here is my subject](https://github.com/Aloik1/Born_2be_root/blob/documents/born2beroot%20english.pdf): your may differ.
 
 ---
 
@@ -310,9 +310,9 @@ And voilà! You have installed Debian on your VM. Just hit “Continue,” and y
 
 ## Project Guide
 
-Alright, after this long installation, let’s get into the fun part. I found it easier to start from evaluation and prepare for what is going to be asked of you. Go HERE to check all the questions you will be asked during the defense of this project.
+Alright, after this long installation, let’s get into the fun part. I found it easier to start from evaluation and prepare for what is going to be asked of you. Go [HERE](https://www.42evals.com) to check all the questions you will be asked during the defense of this project.
 
-As you can see, the evaluation is divided into multiple blocks of questions. We will complete this project in the same fashion. If you are interested in what each command does, I will do my best to explain it. You can click on commands to go to the explanation :)
+As you can see, the evaluation is divided into multiple blocks of questions. We will complete this project in the same fashion. If you are interested in what each command does, I will do my best to explain it. You can click on Explanation below the commands to see what exactly they do :)
 
 Before anything, we need to install the essentials. Go to your root user.
 ```bash
@@ -442,9 +442,13 @@ Explanation (doesn't work yet)
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Password%20policy%20current%20user.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
 2. To change these options we will use flags that replace `-l`:
-   * `-W` + `number`: change warning.
+
+   * `-W` + `number`: change warning.  
+   
    * `-M` + `number`: Change password max duration.
+
    * `-m` + `number`: change password minimum time before changing again.
+
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/password%20policy%20changed%20for%20current%20user.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
@@ -455,8 +459,14 @@ To install, use:
 ```bash
 sudo apt install ufw
 ```
-Use `sudo ufw enable` to start UFW on system startup.  
-Use `sudo service ufw start` to turn it on.  
+Use this to start UFW on system startup:
+```bash
+sudo ufw enable
+```
+Use this command to turn it on.  
+```bash
+sudo service ufw start
+```
 To check it, use:
 ```bash
 sudo service ufw status
@@ -548,6 +558,15 @@ Same as before, we will use:
 groups newuser
 ```
 
+### Advantages and disadvantages of password policy
+
+- Advantages:  
+   1. Increased Security: A strong password policy helps protect user accounts from unauthorized access.  
+   2. Compliance: Many organizations are required to enforce strict password policies to comply with industry regulations.  
+- Disadvantages:  
+   1. User Frustration: Complex password requirements can lead to user frustration and increased support requests.  
+   2. Password Fatigue: Users may resort to insecure practices, like writing down passwords or using simple patterns, to remember complex passwords.
+ 
 ### Extra commands
 
 - To delete a group use:
@@ -565,31 +584,23 @@ Explanation (doesn't work yet)
 sudo userdel
 ```
 Explanation (doesn't work yet)
-
-### Advantages and disadvantages of password policy
-
-- Advantages:  
-   1. Increased Security: A strong password policy helps protect user accounts from unauthorized access.  
-   2. Compliance: Many organizations are required to enforce strict password policies to comply with industry regulations.  
-- Disadvantages:  
-   1. User Frustration: Complex password requirements can lead to user frustration and increased support requests.  
-   2. Password Fatigue: Users may resort to insecure practices, like writing down passwords or using simple patterns, to remember complex passwords.
  
 ## Hostname
 
 ### Points to defend
-- Check hostname
-- Change your hostname
-- Restore your previous hostname
-- Display partitions and compare with subject
-- Explain how LVM works and why is it beneficial
+- [Check hostname](#check-hostname)
+- [Change your hostname](#change-your-hostname)
+- [Restore your previous hostname](#restore-your-hostname)
+- [Display partitions and compare with subject](#display-partitions-and-compare-them-with-subject)
+- [Explain how LVM works and why is it beneficial](#explain-how-lvm-works-and-why-is-it-beneficial)
 
 ### Check hostname
 Hostname is always displayed at the beginning in the command line.
 <p>
-  <img src="hostname" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Hostname.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
 Additionally you can run:
+
 ```bash
 hostname
 ```
@@ -599,14 +610,15 @@ To change your hostname, modify `/etc/hostname`
 ```bash
 sudo nano -l /etc/hostname
 ```
-then you will need to reboot your systen for the changes to take place.
+then you will need to reboot your systen for the changes to take place.  
+
 ```bash
 sudo reboot
 ```
 ### Restore your hostname
 Same thing as changing it, just change it to what is used to be ;)
 
-### Display partitions and compare then with subject
+### Display partitions and compare them with subject
 These are the partitions with no bonus part:
 <p>
 <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/partitions%20no%20bonus.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
@@ -615,6 +627,306 @@ These are the partitions with bonus part:
 <p>
 <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(59).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
+
+### Explain how LVM works and why is it beneficial
+
+LVM (Logical Volume Manager) is a flexible storage manager for Linux
+Its benefits include:
+   - The ability to resize volumes on-the-fly (without the need to reboot the system to apply changes)
+   - Create snapshots for backups
+   - Aggregate multiple physical disks into a single logical volume. This allows for more flexible and efficient storage management.
+
+## Sudo
+
+### Points to defend.
+- [Check if sudo is installed](#check-if-sudo-is-installed)
+- [Assign your new user to `sudo` group](#assign-your-new-user-to-sudo-group)
+- [Explain the purpose and operation of sudo with examples](#explain-the-purpose-and-operation-of-sudo-with-examples)
+- [Demonstrate implementation of rules from subject](#demonstrate-implementation-of-rules-from-subject)
+- [Verify that /var/log/sudo exists and has at least 1 file](#verify-that-varlogsudo-exists-and-has-at-least-1-file)
+- [Check the contents of that file](#check-the-contents-of-that-file)
+- [Run a sudo command and see if history changes](#run-a-sudo-command-and-see-if-history-changes)
+
+### Check if sudo is installed
+
+This is straightforward. Run:
+```bash
+sudo -V
+```
+Explanation (doesn't work yet)
+
+### Assign your new user to sudo group
+
+Just like before, we shall use the same command as before:
+```bash
+sudo usermod -aG sudo newuser
+```
+
+To check, again, just like before, run:  
+```bash
+groups newuser
+```
+Or:  
+```bash
+id -Gn newuser
+```
+
+### Explain the purpose and operation of sudo with examples
+
+Sudo stands for: superuser do.  
+It's a crutial command that allows a user, who is a part of sudo group to execute a command with extender permissions.  
+It's used to not risk using root user to execute sensible commands. Any installation of packages of modification of essential system components (Firewall, SSH, etc.) should be executed with sudo.
+
+## Demonstrate implementation of rules from subject
+
+Let's first see what are these rules:
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/sudo%20rules.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+1. For the first 2 points we will modify `sudo visudo` file.
+```bash
+sudo visudo
+```
+Explanation (doesn't work yet)
+- Once there, you will see a couple of lines starting with **"Defaults"**. We will be adding a couple lines:
+     * `Defaults   passwd_tries=3` - to have only 3 tries to get the password right
+     * `Defaults   badpass_message="message"` - to display a customized message when the password is wrong
+- Also, TTY mode is modified here:
+     * `Defaults   requiretty` - will require TTY to use `sudo` or `root` account.
+
+When you finish, it should look something like this:
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/sudo%20visudo%20modified.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+- Now that we modified `sudo visudo`, let's log our sudo commands into one file.
+   * First, create `/var/log/sudo/` directory
+```bash
+sudo mkdir /var/log/sudo
+```
+   * Create a file for your log. It has to me `.log`
+```bash
+sudo nano -l filename.log
+```
+   * Now lets go back to `sudo visudo` and add something else.
+```bash
+sudo visudo
+```
+   * Just like before, add these lines:
+        -  `Defaults   log_host, log_year` - optional, but looks really professional. Adds who executes sudo commands and when
+        -  `defaults   log_input, log_output, logfile="/var/log/sudo/filename.log"` - Adds input and output of sudo commands and writes them to your `.log` file.
+ 
+This should look something like this:
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/sudo%20visudo%20log.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+   * The last thing, the restricted directories are set by default already, so skip that step.
+
+### Verify that /var/log/sudo exists and has at least 1 file
+Refer to the last point. We already created both the directory and the file.
+If you want to check, for the directory, type:
+```bash
+cd /var/log/sudo
+```
+And then, to see the file:
+```bash
+ls
+```
+
+### Check the contents of that file
+
+To check the content of the file:
+```bash
+cat /var/log/sudo/filename.log
+```
+It should display a history of sudo, similar to this:  
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/sudolog%20history.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+### Run a sudo command and see if history changes  
+
+Run any sudo command:  
+```bash
+sudo whatever_you_like
+```
+Then again, display the file:  
+```bash
+cat /var/log/sudo/filename.log
+```
+Your sudo command should have been added to the `.log` file:  
+<p>
+<img src="https://github.com/Aloik1/Born_2be_root/blob/Images/sudolog%20modified.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+## UFW
+
+### Points to defend
+- [Verify that UFW is installed and works correctly](#verify-that-ufw-is-installed-and-works-correctly)
+- [Explain what is UFW and why is it important to use](#explain-what-is-ufw-and-why-is-it-important-to-use)
+- [Display rules for UFW. Check for port 4242 rule](#display-rules-for-ufw-check-for-port-4242-rule)
+- [Add a rule for port 8080 and check if it's added. Then delete it](#add-a-rule-for-port-8080-and-check-if-its-added-then-delete-it)
+
+### Verify that UFW is installed and works correctly
+Run a simple:
+```bash
+sudo ufw version
+```
+And to verify it's working correctly:
+```bash
+sudo service ufw status
+```
+Check [HERE](#check-if-ufw-is-installed) if its the same and if not, make sure to modify it.
+
+### Explain what is UFW and why is it important to use
+
+UFW (Uncomplicated Firewall) is a user-friendly firewall for Linux systems.  
+It allows users to easily set up and manage firewall rules to control incoming and outgoing network traffic.  
+UFW is important because it helps enhance system security by allowing only authorized connections, protecting against unauthorized access, and minimizing the risk of network-based attacks.
+
+### Display rules for UFW. Check for port 4242 rule
+
+To display rules for UFW let's use:
+```bash
+sudo ufw status numbered
+```
+In order to add rules, run this command:
+```bash
+sudo ufw allow
+```
+In our case this command looks something like this:
+```bash
+sudo ufw allow 4242
+```
+Then check again with `sudo ufw status numbered` and check if the new rule is added. 
+
+### Add a rule for port 8080 and check if it's added. Then delete it
+
+To see the rules we want to delete let's use:  
+```bash
+sudo ufw status numbered
+```
+To delete a UFW rule run:  
+```bash
+sudo ufw delete + rule_number
+```
+Keep in mind you have to use `sudo ufw status numbered` after every deletion, because rule numbers change each time you delete a rule.
+This is how it should look:  
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/ufw%20delete%20rules.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+## SSH
+
+### Point to defend
+- Check if SSH is installed and check if it works correctly
+- Explain what is SSH and why is it important to use it
+- Check if SSH only uses port 4242
+- Connect your new user to SSH via key or password
+- Make sure you can't use SSH with root user
+
+### Check if SSH is installed and check if it works correctly
+
+Run a simple:
+```bash
+sudo service ssh version
+```
+And to verify it's working correctly:
+```bash
+sudo service ssh status
+```
+Check [HERE](#check-if-ssh-is-installed) if its the same and if not, make sure to modify it.
+
+### Explain what is SSH and whyy is it important to use it
+
+SSH (Secure Shell) is a cryptographic network protocol that enables secure communication between a client and a server over an unsecured network.  
+It provides a secure way to access and manage remote systems, allowing users to execute commands and transfer files.  
+Using SSH is essential for protecting sensitive information from eavesdropping and unauthorized access during remote administration.
+
+### Check if SSH only uses port 4242
+
+Go to:
+```bash
+sudo nano -l /etc/ssh/sshd_config
+```
+- Line 14: Remove `#` and change port number to `4242`
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/ssh%20port.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+Don't forget to:
+```bash
+sudo service ssh restart
+```
+This will apply the changes to ports.
+
+### Connect your new user to SSH via key or password
+There are 2 ways to do this: one as intended and another way cooler and will let you copy commands from this guide directly into your machine tarminal heh.
+
+The first (less cool) method:
+   * Get your host IP:
+```bash
+hostname -i
+```
+   * Run next command:
+```bash
+ssh username_you_want_to_connect_to@hostname_ip -p 4242
+```
+Explanation (doesn't work yet)
+It will ask for password for user you want to connect to, and done.
+
+Now, the cool way (my way :)):
+   * Just like before, get your host IP  
+   * Go to VirtualBox and go to: settings > Network > Advanced > Port Forwarding
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/VM%20settings.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/VM%20Port%20forwarding.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/VM%20port%20forwarding%20adding.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+We are adding port forwarding to 4243 because 4242 is blocked.  
+
+   * Go to your machine terminal (not your VM)  
+   * Run the same command as before
+```bash
+ssh username_you_want_to_connect_to@hostname_ip -p 4243
+```
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/SSH%20connect%20terminal.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+   * Enter your user password
+And you have officially connected your PC terminal to the VM.
+To check, run:
+```bash
+wall echo Hello
+```
+Explanation (doesn't work yet)
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Chech%20SSH%20connection.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+### Make sure you can't use SSH with root user
+To disable SSH connections with root, modify:
+```bash
+sudo nano -l /etc/ssh/sshd_config
+```
+   - Line 33: Change to: `PermitRootLogin no`
+This is how this looks:
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Deny%20root%20login%20SSH.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+Don't forget to run:
+```bash
+sudo systemctl restart ssh
+```
+This applies the changes to SSH configuration.
+
 
 ---
   
