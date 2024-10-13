@@ -464,6 +464,37 @@ Here is how it looks in terminal:
 ### Check for appearance of Script
 - When we create the script, it should appear every 10 minutes.
 
+## User
+
+### Points to defend
+
+- Check for a user with your login name.
+- Check if your user is in "sudo" and "user42" groups.
+- Check password policy. Create a new user.
+- Create a new group "evaluating" and add this new user to it.
+- Explain advantages and disadvantages of password policy
+
+### Check for a user with your login name
+
+In order to check your user, type:
+```bash
+whoami
+```
+
+### Check if your user is in "sudo" and "user42" groups.
+
+There are 2 ways to check user groups:
+1. Use:  
+```bash
+id -Gn user
+```
+Explanation
+2. Or:  
+```bash
+groups user
+```
+Explanation
+
 ---
   
 ## Bonus part installation
