@@ -143,6 +143,13 @@ With the virtual machine selected, click the **"Start"** button at the top.
 </p>
 
 ### Step 5: Install Debian
+Before we do anything with the Installation, scale your VM screen to your preference. I used 150%, but feel free to change this setting as you see fit.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Change_screen_size.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Choose_screen_size.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
 
 1. Use the arrow keys to select **"Install"** (not the graphical option) and press Enter.
 <p>
@@ -164,6 +171,11 @@ With the virtual machine selected, click the **"Start"** button at the top.
 </p>
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/Screenshot%20(17).png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
+</p>
+
+3. Choose your keyboard layout.
+<p>
+  <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/keyboard.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
 
 ### Step 6: Network Configuration
