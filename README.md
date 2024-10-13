@@ -338,9 +338,9 @@ su user
 ### Points to Defend
 
 - [Check for absence of graphical environment.](#check-for-absence-of-graphical-environment)
-- [Check OS (Debian or Rocky).](#check-os-(debian-or-rocky))
+- [Check OS (Debian or Rocky).](#check-os-debian-or-rocky)
 - [Check for password on start.](#check-for-password-on-start)
-- [Connect with a user (Mustn't be root)](#connect-with-a-user-(mustn't-be-root))
+- [Connect with a user (Mustn't be root)](#connect-with-a-user-mustnt-be-root)
 - [Check password rules.](#check-password-rules)
 - [Check if UFW is installed.](#check-if-ufw-is-installed)
 - [Check if SSH is installed.](#check-if-ssh-is-installed)
@@ -425,8 +425,8 @@ After everything you are left with something like this:
 We have 1 more setting to change. Go to `/etc/pam.d/common-password`:
 
 - Line 25: Add `difok=7 user!=root`  
-      1. `difok`: number of characters different from last password.
-      2. `user!=root`: enforce for everyone except root.
+      1. `difok`: number of characters different from last password.  
+      2. `user!=root`: enforce for everyone except root.  
 <p>
   <img src="https://github.com/Aloik1/Born_2be_root/blob/Images/pam_d_common-password.png?raw=true" alt="Image 1" width="600" style="display:inline-block; margin-right:10px;">
 </p>
@@ -437,8 +437,8 @@ To install, use:
 ```bash
 sudo apt install ufw
 ```
-Use `sudo ufw enable` to start UFW on system startup.
-Use `sudo service ufw start` to turn it on.
+Use `sudo ufw enable` to start UFW on system startup.  
+Use `sudo service ufw start` to turn it on.  
 To check it, use:
 ```bash
 sudo service ufw status
@@ -488,12 +488,53 @@ There are 2 ways to check user groups:
 ```bash
 id -Gn user
 ```
-Explanation
+Explanation (doesn't work yet)  
 2. Or:  
 ```bash
 groups user
 ```
-Explanation
+Explanation (doesn't work yet)
+
+### Check password policy. Create a new user.
+
+To create a new user, run:
+```bash
+sudo adduser newuser
+```
+Explanation (doesn't work yet)
+
+### Create a new group "evaluating" and add this new user to it.
+
+To create a new group, use:
+```bash
+sudo groupadd groupname
+```
+Explanation (doesn't work yet)  
+In our case, this will look like this:
+```bash
+sudo groupadd evaluating
+```
+
+To add a user to a group, we will use the next command:
+```bash
+sudo usermod -aG evaluating newuser
+```
+Explanation (doesn't work yet)
+
+### Check if the New User is in the "evaluating" Group
+
+Same as before, we will use:
+```bash
+groups newuser
+```
+### Advantages and Disadvantages of Password Policy
+
+- Advantages:  
+   1. Increased Security: A strong password policy helps protect user accounts from unauthorized access.  
+   2. Compliance: Many organizations are required to enforce strict password policies to comply with industry regulations.  
+- Disadvantages:  
+   1. User Frustration: Complex password requirements can lead to user frustration and increased support requests.  
+   2. Password Fatigue: Users may resort to insecure practices, like writing down passwords or using simple patterns, to remember complex passwords.  
 
 ---
   
