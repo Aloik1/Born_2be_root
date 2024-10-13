@@ -338,13 +338,13 @@ su user
 ### Points to Defend
 
 - [Check for absence of graphical environment.](#check-for-absence-of-graphical-environment)
-- [Check OS (Debian or Rocky).](check-os-(debian-or-rocky))
-- [Check for password on start.](check-for-password-on-start)
-- [Connect with a user (Mustn't be root)](connect-with-a-user-(mustn't-be-root))
-- [Check password rules.](check-password-rules)
-- [Check if UFW is installed.](check-if-ufw-is-installed)
-- [Check if SSH is installed.](check-if-ssh-is-installed)
-- [Check script appearance.](check-for-appearance-of-script)
+- [Check OS (Debian or Rocky).](#check-os-(debian-or-rocky))
+- [Check for password on start.](#check-for-password-on-start)
+- [Connect with a user (Mustn't be root)](#connect-with-a-user-(mustn't-be-root))
+- [Check password rules.](#check-password-rules)
+- [Check if UFW is installed.](#check-if-ufw-is-installed)
+- [Check if SSH is installed.](#check-if-ssh-is-installed)
+- [Check script appearance.](#check-for-appearance-of-script)
 
 ### Check for Absence of Graphical Environment
 
