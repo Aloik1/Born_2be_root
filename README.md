@@ -33,7 +33,14 @@ The Born_2be_root project is all about navigating and managing a Linux-based sys
    - [Step 10: Finalize Installation](#step-10-finalize-installation)
    - [Step 11: Install GRUB Bootloader](#step-11-install-grub-bootloader)
 3. [Project Guide](#project-guide)
-4. [Bonus Part Installation](#bonus-part-installation)
+   - [Simple Configuration](#simple-configuration)
+   - [User](#user)
+   - [Hostname](#hostname)
+   - [Sudo](#sudo)
+   - [UFW](#ufw)
+   - [SSH](#ssh)
+   
+5. [Bonus Part Installation](#bonus-part-installation)
    - [Step 1: Choose Manual Partitioning](#step-1-choose-manual-partitioning)
    - [Step 2: Create the Boot Partition](#step-2-create-the-boot-partition)
    - [Step 3: Create an Encrypted Partition for LVM](#step-3-create-an-encrypted-partition-for-lvm)
@@ -527,13 +534,19 @@ Explanation (doesn't work yet)
 
 ### Check password policy. Create a new user
 
+> [!WARNING]    
+> The subject does not require you to create a new user. This step if for practice only
+
 To create a new user, run:
 ```bash
 sudo adduser newuser
 ```
 Explanation (doesn't work yet)
 
-### Create a new group "evaluating" and add this new user to it
+### Create a new group "evaluating" and add this new user to it  
+
+> [!WARNING]    
+> The subject does not require you to create "evaluating" group. This step if for practice only
 
 To create a new group, use:
 ```bash
@@ -606,6 +619,10 @@ hostname
 ```
 
 ### Change your hostname
+
+> [!WARNING]    
+> The subject does not require you to change your hostname. This step if for practice only
+
 To change your hostname, modify `/etc/hostname`
 ```bash
 sudo nano -l /etc/hostname
@@ -657,6 +674,9 @@ Explanation (doesn't work yet)
 
 ### Assign your new user to sudo group
 
+> [!WARNING]    
+> The subject does not require you to complete this step. This step if for practice only
+
 Just like before, we shall use the same command as before:
 ```bash
 sudo usermod -aG sudo newuser
@@ -677,7 +697,7 @@ Sudo stands for: superuser do.
 It's a crutial command that allows a user, who is a part of sudo group to execute a command with extender permissions.  
 It's used to not risk using root user to execute sensible commands. Any installation of packages of modification of essential system components (Firewall, SSH, etc.) should be executed with sudo.
 
-## Demonstrate implementation of rules from subject
+### Demonstrate implementation of rules from subject
 
 Let's first see what are these rules:
 <p>
@@ -802,6 +822,9 @@ sudo ufw allow 4242
 Then check again with `sudo ufw status numbered` and check if the new rule is added. 
 
 ### Add a rule for port 8080 and check if it's added. Then delete it
+
+> [!WARNING]    
+> The subject does not require you to add this rule. This step if for practice only
 
 To see the rules we want to delete let's use:  
 ```bash
