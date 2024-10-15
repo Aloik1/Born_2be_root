@@ -39,6 +39,7 @@ The Born_2be_root project is all about navigating and managing a Linux-based sys
    - [Sudo](#sudo)
    - [UFW](#ufw)
    - [SSH](#ssh)
+   - [Script](#script)
    
 5. [Bonus Part Installation](#bonus-part-installation)
    - [Step 1: Choose Manual Partitioning](#step-1-choose-manual-partitioning)
@@ -843,11 +844,11 @@ This is how it should look:
 ## SSH
 
 ### Point to defend
-- Check if SSH is installed and check if it works correctly
-- Explain what is SSH and why is it important to use it
-- Check if SSH only uses port 4242
-- Connect your new user to SSH via key or password
-- Make sure you can't use SSH with root user
+- [Check if SSH is installed and check if it works correctly](#-check-if-ssh-is-installed-and-check-if-it-works-correctly)
+- [Explain what is SSH and why is it important to use it](#explain-what-is-ssh-and-why-is-it-important-to-use-it)
+- [Check if SSH only uses port 4242](#check-if-ssh-only-uses-port-4242)
+- [Connect your new user to SSH via key or password](#connect-your-new-user-to-ssh-via-key-or-password)
+- [Make sure you can't use SSH with root user](#make-sure-you-cant-use-ssh-with-root-user)
 
 ### Check if SSH is installed and check if it works correctly
 
@@ -861,7 +862,7 @@ sudo service ssh status
 ```
 Check [HERE](#check-if-ssh-is-installed) if its the same and if not, make sure to modify it.
 
-### Explain what is SSH and whyy is it important to use it
+### Explain what is SSH and why is it important to use it
 
 SSH (Secure Shell) is a cryptographic network protocol that enables secure communication between a client and a server over an unsecured network.  
 It provides a secure way to access and manage remote systems, allowing users to execute commands and transfer files.  
@@ -950,6 +951,10 @@ sudo systemctl restart ssh
 ```
 This applies the changes to SSH configuration.
 
+## Script
+
+Here you have the completed script with all the explanations. Dont just copy past it, please. No knowledge is obtained from copying UwU.
+[SCRIPT](https://github.com/Aloik1/Born_2be_root/blob/main/monitoring.sh)
 
 ---
   
